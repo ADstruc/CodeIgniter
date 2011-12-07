@@ -18,7 +18,10 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
+if(!defined('ENVIROMENT'))
+{
 	define('ENVIRONMENT', 'development');
+}
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -33,7 +36,7 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
-			error_reporting(E_ALL);
+			error_reporting(E_ALL|E_STRICT);
 		break;
 	
 		case 'testing':
@@ -56,7 +59,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'system';
+	$system_path = ADSTRUCBASE . 'system';
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +75,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'application';
+	$application_folder = ADSTRUCBASE . 'application';
 
 /*
  * --------------------------------------------------------------------
