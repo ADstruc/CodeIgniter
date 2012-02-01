@@ -61,7 +61,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = ADSTRUCBASE . '_system';
+	$system_path = ADSTRUCBASE . 'system';
 
 /*
  *---------------------------------------------------------------
