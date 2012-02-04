@@ -19,6 +19,11 @@
  *
  */
 
+if(!defined('ENVIRONMENT'))
+{
+	define('ENVIRONMENT', 'development');
+}
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
