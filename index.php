@@ -19,7 +19,8 @@
  *
  */
 
-if(!defined('ENVIROMENT'))
+
+if(!defined('ENVIRONMENT'))
 {
 	define('ENVIRONMENT', 'development');
 }
@@ -38,16 +39,20 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
+        case 'testing':
+        case 'sandbox':
 			error_reporting(E_ALL|E_STRICT);
 		break;
 	
-		case 'testing':
 		case 'production':
+        case 'demo':
+        case 'beta':
 			error_reporting(0);
 		break;
 
 		default:
 			exit('The application environment is not set correctly.');
+        break;
 	}
 }
 
