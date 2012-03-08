@@ -451,55 +451,6 @@ if ( ! function_exists('set_status_header'))
 // --------------------------------------------------------------------
 
 /**
-* Exception Handler
-*
-* This is the custom exception handler that is declaired at the top
-* of Codeigniter.php.  The main reason we use this is to permit
-* PHP errors to be logged in our own log files since the user may
-* not have access to server logs. Since this function
-* effectively intercepts PHP errors, however, we also need
-* to display errors based on the current error_reporting level.
-* We do that with the use of a PHP error template.
-*
-* @access	private
-* @return	void
-*/
-if ( ! function_exists('_exception_handler'))
-{
-	function _exception_handler($severity, $message, $filepath, $line)
-	{
-		 // We don't bother with "strict" notices since they tend to fill up
-		 // the log file with excess information that isn't normally very helpful.
-		 // For example, if you are running PHP 5 and you use version 4 style
-		 // class functions (without prefixes like "public", "private", etc.)
-		 // you'll get notices telling you that these have been deprecated.
-		if ($severity == E_STRICT)
-		{
-			return;
-		}
-
-		$_error =& load_class('Exceptions', 'core');
-
-		// Should we display the error? We'll get the current error_reporting
-		// level and add its bits with the severity bits to find out.
-		if (($severity & error_reporting()) == $severity)
-		{
-			$_error->show_php_error($severity, $message, $filepath, $line);
-		}
-
-		// Should we log the error?  No?  We're done...
-		if (config_item('log_threshold') == 0)
-		{
-			return;
-		}
-
-		$_error->log_exception($severity, $message, $filepath, $line);
-	}
-}
-
-// --------------------------------------------------------------------
-
-/**
  * Remove Invisible Characters
  *
  * This prevents sandwiching null characters
