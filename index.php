@@ -47,7 +47,7 @@ if (defined('ENVIRONMENT'))
 		case 'production':
         case 'demo':
         case 'beta':
-			error_reporting(0);
+			error_reporting(E_ERROR);
 		break;
 
 		default:
