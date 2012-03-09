@@ -40,13 +40,13 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
         case 'testing':
-        case 'sandbox':
 			error_reporting(E_ALL|E_STRICT);
 		break;
 	
 		case 'production':
         case 'demo':
         case 'beta':
+        case 'sandbox':
 			error_reporting(E_ERROR);
 		break;
 
