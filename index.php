@@ -49,10 +49,6 @@ if (defined('ENVIRONMENT'))
         case 'sandbox':
 			error_reporting(E_ERROR);
 		break;
-
-		default:
-			exit('The application environment is not set correctly.');
-        break;
 	}
 }
 
